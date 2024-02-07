@@ -11,13 +11,14 @@ struct ContentView: View {
     @State var username = ""
     
     var body: some View {
-        NavigationView {
-            Group {
-                if username == "" {
-                    LoginView(username: $username)
-                } else {
+        NavigationStack {
+            if username == "" {
+                LoginView(username: $username)
+            } else {
+                if let currentUser = realmApp.currentUser {
                     DrawingPickerView(username: username)
-                        .environment(\.realmConfiguration, realmApp.currentUser!.configuration(partitionValue: "user=\(username)"))
+                        .environment(\.realmConfiguration,
+                                      currentUser.flexibleSyncConfiguration())
                         .navigationBarItems(leading: realmApp.currentUser != nil ? LogoutButton(username: $username) : nil)
                 }
             }

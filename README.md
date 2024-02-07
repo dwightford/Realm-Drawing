@@ -5,5 +5,5 @@ Garden Draw is a drawing app that demonstrates the Realm mobile database and Mon
 ![Garden Drasw demo](assets/Realm-Draw.gif)
 
 ## Installation
-- [Setup the Realm Backend](Realm)
+- [Setup the Atlas App Services Backend](AtlasAppService)
 - [Configure, build and run the iOS app](iOS)
